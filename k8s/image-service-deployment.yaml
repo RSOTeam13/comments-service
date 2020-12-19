@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comment-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comment-service
+  template:
+    metadata:
+      labels:
+        app: comment-service
+    spec:
+      containers:
+        - image: anzemur/comment-service-api:latest
+          name: comment-service
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-url
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: comment-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: comment-service
