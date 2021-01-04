@@ -3,7 +3,7 @@
 
 ![Travis-Build](https://travis-ci.com/RSOTeam13/comments-service.svg?branch=master)
  
-Micro service for operations on images in Albify application. You can find project documentation [here](https://github.com/RSOTeam13/documentation).
+Micro service for operations on image commments in Albify application. You can find project documentation [here](https://github.com/RSOTeam13/documentation).
 
 #### Config server
 Get consul and run it (locally) with `./consul agent -dev`
