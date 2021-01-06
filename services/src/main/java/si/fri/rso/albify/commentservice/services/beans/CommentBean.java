@@ -17,6 +17,7 @@ import si.fri.rso.albify.commentservice.lib.Comment;
 import si.fri.rso.albify.commentservice.models.converters.CommentConverter;
 import si.fri.rso.albify.commentservice.models.entities.CommentEntity;
 
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -51,6 +52,16 @@ public class CommentBean {
     private MongoClient mongoClient = MongoClients.create(settings);
     private MongoDatabase database = mongoClient.getDatabase("albify");
     private MongoCollection<CommentEntity> commentsCollection = database.getCollection("comments", CommentEntity.class);
+
+    @PreDestroy
+    private void onDestroy() {
+        try {
+            mongoClient.close();
+        } catch (Exception e) {
+            log.severe("Error when closing comment bean database connection.");
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Returns image by its ID.
