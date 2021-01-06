@@ -15,7 +15,6 @@ import java.util.List;
 
 @RequestScoped
 @GraphQLClass
-@CrossOrigin(name = "comments-resource")
 public class CommentQueries {
 
     @Inject

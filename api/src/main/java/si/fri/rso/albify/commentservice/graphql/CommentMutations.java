@@ -14,7 +14,6 @@ import javax.inject.Inject;
 
 @RequestScoped
 @GraphQLClass
-@CrossOrigin(name = "comments-resource")
 public class CommentMutations {
 
     @Inject
