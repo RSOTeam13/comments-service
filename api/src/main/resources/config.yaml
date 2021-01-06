@@ -9,11 +9,10 @@ kumuluzee:
       port: 8080
 
   cors-filter:
-    annotations:
-      comments-resource:
-        allow-origin: "*"
-        allow-subdomains: true
-        supported-methods: "GET, POST, DELETE, HEAD, OPTIONS, PUT"
+    servlet:
+      allow-origin: "*"
+      allow-subdomains: true
+      supported-methods: "GET, POST, DELETE, HEAD, OPTIONS, PUT"
 
 rest-config:
   maintenance-mode: true
