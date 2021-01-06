@@ -1,5 +1,6 @@
 package si.fri.rso.albify.commentservice.graphql;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.graphql.annotations.GraphQLClass;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLMutation;
@@ -13,6 +14,7 @@ import javax.inject.Inject;
 
 @RequestScoped
 @GraphQLClass
+@CrossOrigin(name = "comments-resource")
 public class CommentMutations {
 
     @Inject

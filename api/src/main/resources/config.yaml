@@ -7,5 +7,13 @@ kumuluzee:
     base-url: http://localhost:8080
     http:
       port: 8080
+
+  cors-filter:
+    annotations:
+      comments-resource:
+        allow-origin: "*"
+        allow-subdomains: true
+        supported-methods: "GET, POST, DELETE, HEAD, OPTIONS, PUT"
+
 rest-config:
   maintenance-mode: true
